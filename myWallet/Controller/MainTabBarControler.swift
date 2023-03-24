@@ -24,17 +24,19 @@ class MainTabBarControler: UITabBarController {
 
     private func generateTabBar() {
         viewControllers = [
-            generateVc(viewControoler: todayVC, title: "Today", image: UIImage(systemName: "square.and.arrow.down.fill")),
-            generateVc(viewControoler: reportsVC, title: "Reports", image: UIImage(systemName: "square.and.arrow.down.fill")),
-            generateVc(viewControoler: settings, title: "Settings", image: UIImage(systemName: "square.and.arrow.down.fill")),
-            generateVc(viewControoler: budgetrVC, title: "Balance", image: UIImage(systemName: "square.and.arrow.down.fill")),
-            generateVc(viewControoler: balanceVC, title: "Budget", image: UIImage(systemName: "square.and.arrow.down.fill"))
+            generateVc(viewControoler: todayVC, title: "Today", image: UIImage(systemName: "clock")),
+            generateVc(viewControoler: reportsVC, title: "Reports", image: UIImage(systemName: "doc")),
+            generateVc(viewControoler: budgetrVC, title: "Balance", image: UIImage(systemName: "creditcard")),
+            generateVc(viewControoler: balanceVC, title: "Budget", image: UIImage(systemName: "battery.75")),
+            generateVc(viewControoler: settings, title: "Settings", image: UIImage(systemName: "gear"))
         ]
+        
     }
     
     private func generateVc(viewControoler: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewControoler.tabBarItem.title = title
         viewControoler.tabBarItem.image = image
+       // viewControoler.navigationController?.view.backgroundColor  = UIColor.white
         return viewControoler
     }
     
@@ -61,7 +63,6 @@ class MainTabBarControler: UITabBarController {
         roundLayer.fillColor = UIColor.mainWhite.cgColor
         tabBar.tintColor = UIColor.tabBarIteamAccets
         tabBar.unselectedItemTintColor = UIColor.tabBarIteamLight
-        
         
     }
 

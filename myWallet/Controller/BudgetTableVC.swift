@@ -8,9 +8,7 @@
 import UIKit
 
 class BudgetTableVC: UITableViewController {
-    //   let searchController = UISearchController(searchResultsController: nil)
     
-    var money: DataManager?
     var cell = "Cell"
     
     override func viewDidLoad() {
@@ -23,19 +21,14 @@ class BudgetTableVC: UITableViewController {
         
         setupTitle()
         
-        
-        
-        
         // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
+        //self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     func setupTitle() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .white
-
         
     }
     

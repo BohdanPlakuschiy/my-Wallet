@@ -12,11 +12,8 @@ class Settings: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
-               view.backgroundColor = .white
-              // var settings = UITabBarItem()
-              // settings = UITabBarItem(tabBarSystemItem: .topRated, tag: 4)
-              // self.tabBarItem = settings
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = .white
     }
     
 

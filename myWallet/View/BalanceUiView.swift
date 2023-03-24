@@ -40,18 +40,28 @@ class BalanceUiView: UITableViewCell {
         contentView.addSubview(courseName)
         contentView.addSubview(image)
         
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            courseName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            courseName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            courseName.heightAnchor.constraint(equalToConstant: 50),
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            image.heightAnchor.constraint(equalToConstant: 50),
+            image.widthAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        courseName.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            courseName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 100),
+            courseName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            courseName.heightAnchor.constraint(equalToConstant: 40),
             courseName.widthAnchor.constraint(equalToConstant: 120)
         ])
         
+        courseName1.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            
-            courseName1.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            courseName1.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             courseName1.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            courseName1.heightAnchor.constraint(equalToConstant: 50),
+            courseName1.heightAnchor.constraint(equalToConstant: 40),
             courseName.widthAnchor.constraint(equalToConstant: 120)
         ])
     }
@@ -66,6 +76,8 @@ class BalanceUiView: UITableViewCell {
         
     }
 }
+
+
 
 
 

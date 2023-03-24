@@ -12,17 +12,10 @@ final class DataManager {
     static let categories = DataManager()
     
     private init() {
-        
-        
-        
     }
     
     private(set) var money: [Accountant] = []
     private (set) var topics: [String: [Accountant]] = [:]
-    
-
-    
-  
     
     func addAssets() -> [Accountant] {
         var array = [Accountant]()

@@ -93,10 +93,10 @@
 		4339964B29C8B451002C0A3B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4339965B29C8B851002C0A3B /* TodayTableVC.swift */,
 				4339965729C8B829002C0A3B /* BudgetTableVC.swift */,
 				4339965929C8B83D002C0A3B /* BalanceTableVC.swift */,
 				436A9A8B29CA1AB3004295DE /* AddNewRowBalance.swift */,
-				4339965B29C8B851002C0A3B /* TodayTableVC.swift */,
 				4339965D29C8B892002C0A3B /* Reports.swift */,
 				4339965F29C8B8B4002C0A3B /* Settings.swift */,
 				43DB5F9329CDA74900651261 /* MainTabBarControler.swift */,

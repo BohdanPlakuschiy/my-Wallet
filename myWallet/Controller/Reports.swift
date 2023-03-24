@@ -12,11 +12,9 @@ class Reports: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Reports"
-               view.backgroundColor = .gray
-               //var reports = UITabBarItem()
-               //reports = UITabBarItem(tabBarSystemItem: .search, tag: 3)
-               //self.tabBarItem = reports
-               navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = .white
+
 
         // Do any additional setup after loading the view.
     }

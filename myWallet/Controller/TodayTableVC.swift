@@ -11,10 +11,8 @@ class TodayTableVC: UITableViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            title = "Today"
-            view.backgroundColor = .gray
-
             navigationController?.navigationBar.prefersLargeTitles = true
+            setupView()
 
             // Uncomment the following line to preserve selection between presentations
             // self.clearsSelectionOnViewWillAppear = false
@@ -22,6 +20,35 @@ class TodayTableVC: UITableViewController {
             // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
             // self.navigationItem.rightBarButtonItem = self.editButtonItem
         }
+    
+    func setupView() {
+        createCustomNavigationBar()
+        // день недели
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let dayOfTheWeekString = dateFormatter.string(from: date)
+        
+        // месяц
+        dateFormatter.dateFormat = "LLLL"
+        let monthString = dateFormatter.string(from: date)
+        
+        //год
+        dateFormatter.dateFormat = "yyyy"
+        let yearString = dateFormatter.string(from: date)
+        
+        // день месяцф
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: date)
+        guard let  dayOfMonth = components.day else { return  }
+        
+        let dimileter = "|"
+        
+        let customTitleView = createCustomTitleView(contactName: "\(dayOfTheWeekString.capitalized)",
+                                                    contactDescription: "\(monthString.capitalized) \(yearString)",
+                                                    contactDay: "\(dayOfMonth)", delimiter: "\(dimileter)")
+        navigationItem.titleView = customTitleView
+    }
 
         // MARK: - Table view data source
 

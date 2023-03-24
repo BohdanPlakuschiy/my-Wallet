@@ -12,18 +12,13 @@ class BalanceTableVC: UITableViewController {
     private var setAssets: [[Accountant]] = []
     private var arayAssets: [Accountant] = []
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-
         
         title = "Balance"
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
-        view.backgroundColor = .white
+       // view.backgroundColor = .white
 
     
         // кнопка видалення
@@ -31,9 +26,12 @@ class BalanceTableVC: UITableViewController {
         // You must register the cell with a reuse identifier
         tableView.register(BalanceUiView.self, forCellReuseIdentifier: "courseCell")
         // Change the row height if you want
-        tableView.rowHeight = 60
+        tableView.rowHeight = 70
         // This will remove any empty cells that are below your data filled cells
-        tableView.tableFooterView = UIView()
+       // tableView.tableFooterView = UIView(frame: .zero)
+       // self.tableView.tableFooterView?.isHidden = true
+       // tableView.tableHeaderView = UIView(frame: .zero)
+       // self.tableView.tableHeaderView?.isHidden = true
         arayAssets = DataManager.categories.addAssets()
         setAssets = DataManager.categories.generateRandomAssets()
         tableView.reloadData()
@@ -43,36 +41,7 @@ class BalanceTableVC: UITableViewController {
         
     }
     
-    func setupView() {
-        createCustomNavigationBar()
-        // день недели
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        let dayOfTheWeekString = dateFormatter.string(from: date)
-        
-        // месяц
-        dateFormatter.dateFormat = "LLLL"
-        let monthString = dateFormatter.string(from: date)
-        
-        //год
-        dateFormatter.dateFormat = "yyyy"
-        let yearString = dateFormatter.string(from: date)
-        
-        // день месяцф
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.day], from: date)
-        guard let  dayOfMonth = components.day else { return  }
-        
-        let dimileter = "|"
-        
-        let customTitleView = createCustomTitleView(contactName: "\(dayOfTheWeekString.capitalized)",
-                                                    contactDescription: "\(monthString.capitalized) \(yearString)",
-                                                    contactDay: "\(dayOfMonth)", delimiter: "\(dimileter)")
-        navigationItem.titleView = customTitleView
-    }
-    
-    
+
     @objc func addPreesedButton() {
         let contactAddNewBalance = AddNewRowBalance()
         navigationController?.pushViewController(contactAddNewBalance, animated: true)
@@ -84,22 +53,19 @@ class BalanceTableVC: UITableViewController {
         return setAssets.count
     }
     
-    
-    
     // return the title of sections
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let qqq = setAssets[section].first
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
         header.backgroundColor = .systemGray
 
-        var label: UILabel = {
+        let label: UILabel = {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.font = UIFont.systemFont(ofSize: 20)
             return label
         }()
         header.addSubview(label)
-        
         
         let label1 = UILabel(frame: CGRect(x: 20 ,
                                           y: 5,
@@ -109,6 +75,9 @@ class BalanceTableVC: UITableViewController {
         
         label.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -20).isActive = true
         label.topAnchor.constraint(equalTo: header.topAnchor, constant: 10).isActive = true
+        if let sum = qqq?.cost {
+        
+        }
   
         label.text = qqq?.nameAssets
         label1.text = qqq?.assets
@@ -140,6 +109,7 @@ class BalanceTableVC: UITableViewController {
         let index = setAssets[indexPath.section][indexPath.row]
         cell.courseName1.text = String(index.cost)
         cell.courseName.text = index.nameAssets
+        cell.image.image = index.imageAssets
        
         return cell
     }
@@ -165,6 +135,7 @@ class BalanceTableVC: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
+    
     
     
     /*
