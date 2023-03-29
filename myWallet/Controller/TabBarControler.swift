@@ -24,18 +24,19 @@ class MainTabBarControler: UITabBarController {
 
     private func generateTabBar() {
         viewControllers = [
-            generateVc(viewControoler: todayVC, title: "Today", image: UIImage(systemName: "clock")),
-            generateVc(viewControoler: reportsVC, title: "Reports", image: UIImage(systemName: "doc")),
-            generateVc(viewControoler: budgetrVC, title: "Balance", image: UIImage(systemName: "creditcard")),
-            generateVc(viewControoler: balanceVC, title: "Budget", image: UIImage(systemName: "battery.75")),
-            generateVc(viewControoler: settings, title: "Settings", image: UIImage(systemName: "gear"))
+            generateVc(viewControoler: todayVC, title: "Today", image: UIImage(systemName: "clock"), tag: 0),
+            generateVc(viewControoler: reportsVC, title: "Reports", image: UIImage(systemName: "doc"), tag: 1),
+            generateVc(viewControoler: budgetrVC, title: "Balance", image: UIImage(systemName: "creditcard"), tag: 2),
+            generateVc(viewControoler: balanceVC, title: "Budget", image: UIImage(systemName: "battery.75"), tag: 3),
+            generateVc(viewControoler: settings, title: "Settings", image: UIImage(systemName: "gear"), tag: 4)
         ]
         
     }
     
-    private func generateVc(viewControoler: UIViewController, title: String, image: UIImage?) -> UIViewController {
+    private func generateVc(viewControoler: UIViewController, title: String, image: UIImage?, tag: Int) -> UIViewController {
         viewControoler.tabBarItem.title = title
         viewControoler.tabBarItem.image = image
+        viewControoler.tabBarItem.tag = tag
        // viewControoler.navigationController?.view.backgroundColor  = UIColor.white
         return viewControoler
     }
