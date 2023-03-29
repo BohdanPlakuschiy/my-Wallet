@@ -16,6 +16,8 @@ final class DataManager {
     
     private(set) var money: [Accountant] = []
     private (set) var topics: [String: [Accountant]] = [:]
+    private (set) var sumMoney: [Int: [Accountant]] = [:]
+
     
     func addAssets() -> [Accountant] {
         var array = [Accountant]()
@@ -42,6 +44,22 @@ final class DataManager {
         }
         return Array(topics.values)
     }
+    
+//    func sumConst() -> [[Accountant]] {
+//        let section = addAssets()
+//        for item in section {
+//            var sectionByTopics = sumMoney[item.cost] ?? []
+//            for i in sectionByTopics {
+//                var qqq = 0
+//                qqq += i.cost
+//                
+//            }
+//            
+//            sumMoney[item.cost] = sectionByTopics
+//           
+//                
+//            return Array(sumMoney.values)
+//    }
     
     
     

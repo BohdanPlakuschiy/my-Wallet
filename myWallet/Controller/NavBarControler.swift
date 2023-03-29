@@ -7,14 +7,20 @@
 
 import UIKit
 
-class NavBarControler: UINavigationBar {
+class NavBarControler: UINavigationController {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
+    
+   private func configure() {
+       view.backgroundColor = .white
+       navigationBar.isTranslucent = false
+       navigationBar.standardAppearance.titleTextAttributes = [
+        .foregroundColor: Resouces.Colors.navTitleGray,
+        .font: Resouces.Fonts.helvelticaRegular(with: 17)]
+       
+       navigationBar.addBottomBorder(with: Resouces.Colors.tabBarIteamLight, heith: 10)
+    }
 
 }

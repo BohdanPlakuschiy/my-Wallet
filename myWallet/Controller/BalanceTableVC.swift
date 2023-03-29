@@ -11,6 +11,8 @@ class BalanceTableVC: UITableViewController {
 
     private var setAssets: [[Accountant]] = []
     private var arayAssets: [Accountant] = []
+    private var sum: [[Accountant]] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,7 @@ class BalanceTableVC: UITableViewController {
         title = "Balance"
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
-       // view.backgroundColor = .white
+        view.backgroundColor = Resouces.Colors.mainWhite
 
     
         // кнопка видалення
@@ -28,9 +30,9 @@ class BalanceTableVC: UITableViewController {
         // Change the row height if you want
         tableView.rowHeight = 70
         // This will remove any empty cells that are below your data filled cells
-       // tableView.tableFooterView = UIView(frame: .zero)
+        tableView.tableFooterView = UIView(frame: .zero)
        // self.tableView.tableFooterView?.isHidden = true
-       // tableView.tableHeaderView = UIView(frame: .zero)
+       tableView.tableHeaderView = UIView(frame: .zero)
        // self.tableView.tableHeaderView?.isHidden = true
         arayAssets = DataManager.categories.addAssets()
         setAssets = DataManager.categories.generateRandomAssets()
@@ -56,6 +58,12 @@ class BalanceTableVC: UITableViewController {
     // return the title of sections
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let qqq = setAssets[section].first
+        let qqqq = setAssets[section]
+        var eeee = 0
+        for i in qqqq {
+           eeee += i.cost
+        }
+        
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
         header.backgroundColor = .systemGray
 
@@ -75,15 +83,14 @@ class BalanceTableVC: UITableViewController {
         
         label.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -20).isActive = true
         label.topAnchor.constraint(equalTo: header.topAnchor, constant: 10).isActive = true
-        if let sum = qqq?.cost {
-        
-        }
-  
-        label.text = qqq?.nameAssets
+
+       
+        label.text = String(eeee)
         label1.text = qqq?.assets
         label1.font = .systemFont(ofSize: 22, weight: .regular)
         
         return header
+        
     }
     
     
@@ -110,6 +117,7 @@ class BalanceTableVC: UITableViewController {
         cell.courseName1.text = String(index.cost)
         cell.courseName.text = index.nameAssets
         cell.image.image = index.imageAssets
+        
        
         return cell
     }

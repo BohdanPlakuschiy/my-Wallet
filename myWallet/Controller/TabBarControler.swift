@@ -7,20 +7,20 @@
 
 import UIKit
 
-class MainTabBarControler: UITabBarController {
+class TabBarControler: UITabBarController {
+    
+    private let balanceVC = NavBarControler(rootViewController: BalanceTableVC())
+    private let budgetrVC = NavBarControler(rootViewController: BudgetTableVC())
+    private let todayVC = NavBarControler(rootViewController: TodayTableVC() )
+    private let reportsVC = NavBarControler(rootViewController: Reports())
+    private let settings = NavBarControler(rootViewController: Settings())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
         setTaBarAppearance()
         
-        // Do any additional setup after loading the view.
     }
-    let balanceVC = UINavigationController(rootViewController: BalanceTableVC())
-    let budgetrVC = UINavigationController(rootViewController: BudgetTableVC())
-    let todayVC = UINavigationController(rootViewController: TodayTableVC() )
-    let reportsVC = UINavigationController(rootViewController: Reports())
-    let settings = UINavigationController(rootViewController: Settings())
 
     private func generateTabBar() {
         viewControllers = [
@@ -30,17 +30,15 @@ class MainTabBarControler: UITabBarController {
             generateVc(viewControoler: balanceVC, title: "Budget", image: UIImage(systemName: "battery.75"), tag: 3),
             generateVc(viewControoler: settings, title: "Settings", image: UIImage(systemName: "gear"), tag: 4)
         ]
-        
     }
     
-    private func generateVc(viewControoler: UIViewController, title: String, image: UIImage?, tag: Int) -> UIViewController {
+    private func generateVc(viewControoler: NavBarControler, title: String, image: UIImage?, tag: Int) -> NavBarControler {
         viewControoler.tabBarItem.title = title
         viewControoler.tabBarItem.image = image
         viewControoler.tabBarItem.tag = tag
-       // viewControoler.navigationController?.view.backgroundColor  = UIColor.white
+
         return viewControoler
     }
-    
     
     func setTaBarAppearance() {
         let positionOnX: CGFloat = 10
@@ -61,22 +59,11 @@ class MainTabBarControler: UITabBarController {
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         
-        roundLayer.fillColor = UIColor.mainWhite.cgColor
-        tabBar.tintColor = UIColor.tabBarIteamAccets
-        tabBar.unselectedItemTintColor = UIColor.tabBarIteamLight
-        
+        roundLayer.fillColor = Resouces.Colors.mainWhite.cgColor
+        tabBar.tintColor = Resouces.Colors.tabBarIteamAccets
+        tabBar.unselectedItemTintColor = Resouces.Colors.tabBarIteamLight
     }
-
+    
 }
 
-extension UIColor {
-    static var tabBarIteamAccets: UIColor {
-        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    }
-    static var mainWhite: UIColor {
-        #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
-    }
-    static var tabBarIteamLight: UIColor {
-        #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 0.5394764073)
-    }
-}
+
