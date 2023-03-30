@@ -8,88 +8,89 @@
 import UIKit
 
 class BalanceTableVC: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Balance"
         //navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
-        view.backgroundColor = Resouces.Colors.mainWhite
+        view.backgroundColor = .brown
         tableView.register(BalanceUiView.self, forCellReuseIdentifier: "courseCell")
         // Change the row height if you want
-        tableView.rowHeight = 70
+        
         tableView.reloadData()
+        
         // кнопка нав бара добавити ячейку
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавити", style: .plain, target: self, action: #selector( addPreesedButton))
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     @objc func addPreesedButton() {
         let contactAddNewBalance = AddNewRowBalance()
         navigationController?.pushViewController(contactAddNewBalance, animated: true)
     }
-
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return DataManager.Topics.allCases.count
     }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//
+//        let topic = DataManager.Topics.allCases[section]
+//        return createCustomSection(contactName: "\(DataManager.categories.totalMoney(topic: topic))",
+//                                   contactDescription: topic.rawValue)
+//    }
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 50
+//    }
     
     // return the title of sections
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // let qqq = DataManager.categories.generateRandomAssets(DataManager.categories.money)
-//
-//        let air = [String](DataManager.categories.topics.keys).hashValue
-//        let corst = DataManager.categories.money[section].nameAssets
-//
-//
-//        return createCustomSection(contactName: "\(air)", contactDescription: "\(corst)")
-        
-        
+
         let topic = DataManager.Topics.allCases[section]
-        
-        return createCustomSection(contactName: topic.rawValue,
-                                   contactDescription: "\(DataManager.categories.totalMoney(topic: topic))")
+        return createCustomSection(contactName: "\(DataManager.categories.totalMoney(topic: topic))",
+                                   contactDescription: topic.rawValue)
     }
-    
-    
+
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
     
     // return the number of cells each section.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let topick = DataManager.categories.money
-//                if topick.count == 0 {
-//                    return DataManager.categories.money.count
-//                } else if topick.count >= 1 {
-//                    return topick.count } else {
-//                        return 0
-//                    }
-        
         let topic = DataManager.Topics.allCases[section]
-        return DataManager.categories.money(topic: topic).count
-               
+                if DataManager.categories.money(topic: topic).count == 0 {
+                    return DataManager.categories.money.count
+                } else if DataManager.categories.money(topic: topic).count >= 1 {
+                    return DataManager.categories.money(topic: topic).count } else {
+                        return 0
+                    }
+    
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let topic = DataManager.Topics.allCases[indexPath.section]
-        let index = DataManager.categories.money(topic: topic)[indexPath.row]
-        
-        
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! BalanceUiView
         
-//        let index = DataManager.categories.money[indexPath.row]
+        let topic = DataManager.Topics.allCases[indexPath.section]
+        let index = DataManager.categories.money(topic: topic)[indexPath.row]
         cell.update(word: index.nameAssets, word1: String(index.cost), imageArray: index.imageAssets)
         return cell
     }
     
     // called when the cell is selected.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
         
     }
     
@@ -99,8 +100,9 @@ class BalanceTableVC: UITableViewController {
             // Delete the row from the data source
             
 
-            guard let word = DataManager.categories.money.first else {return}
-            DataManager.categories.markAsDelete(word)
+            let del = DataManager.categories.money[indexPath.row]
+            DataManager.categories.markAsDelete(del)
+            let sec = DataManager.Topics.allCases[indexPath.row]
             
             tableView.deleteRows(at: [indexPath], with: .left)
         } else if editingStyle == .insert {

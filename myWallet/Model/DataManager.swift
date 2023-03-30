@@ -13,11 +13,9 @@ final class DataManager {
     
     private init() {
         money = createInitialAssets()
-//        topics = generateRandomAssets()
     }
     
     private(set) var money: [Accountant] = []
-//    private (set) var topics: [String: [Accountant]] = [:]
     
     func money(topic: Topics) -> [Accountant] {
         money.filter { $0.topic == topic }
@@ -42,34 +40,25 @@ final class DataManager {
         
         return array
     }
-    
-//     func generateRandomAssets() -> [[Accountant]] {
-//        let section = addAssets()
-//        for item in section {
-//            var sectionByTopics = topics[item.assets] ?? []
-//            sectionByTopics.append(item)
-//            topics[item.assets] = sectionByTopics
-//        }
-//         return Array(topics.values)
-//    }
-    
+        
     func addWords(_ words: Accountant) {
         money.insert(words, at: 0)
     }
     
     func markAsDelete(_ word: Accountant) {
         guard let removeIndex = money.index(of: word) else { return }
-         money.remove(at: removeIndex)
-       // historyWords.insert(word, at: 0)
+        money.remove(at: removeIndex)
+        // historyWords.insert(word, at: 0)
     }
-
+    
     enum Topics: String {
         case cash = "Cash"
         case creditCard = "Credit cards"
         case otherAssets = "Other assets"
         
-        static var allCases: [Topics] {
+        static var allCases: [Topics] = {
             [.cash, .creditCard, .otherAssets]
-        }
+        }()
+        
     }
 }
