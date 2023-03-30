@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     
-    func createCustomSection(contactName: String, contactDescription: String ) -> UIView {
+    func createCustomSection(contactName: String, contactDescription: String) -> UIView {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
         header.backgroundColor = .systemGray
         let label: UILabel = {

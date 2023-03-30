@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 struct Accountant: Equatable {
-    let assets: String
+    let topic: DataManager.Topics
     let nameAssets : String
     let imageAssets: UIImage
     let cost: Int
     
-    static func ==(lhs: Accountant, rhs: Accountant) -> Bool {
-        return lhs.assets == rhs.assets && lhs.nameAssets == rhs.nameAssets
+    static func == (lhs: Accountant, rhs: Accountant) -> Bool {
+        return lhs.topic.rawValue == rhs.topic.rawValue && lhs.nameAssets == rhs.nameAssets
     }
 }

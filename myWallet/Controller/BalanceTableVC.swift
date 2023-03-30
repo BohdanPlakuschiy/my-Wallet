@@ -33,21 +33,24 @@ class BalanceTableVC: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        let air = [String](DataManager.categories.topics.keys)
-        return air.count
-        
+        return DataManager.Topics.allCases.count
     }
     
     // return the title of sections
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // let qqq = DataManager.categories.generateRandomAssets(DataManager.categories.money)
- 
-        let air = [String](DataManager.categories.topics.keys).hashValue
-        let corst = DataManager.categories.money[section].nameAssets
-      
+//
+//        let air = [String](DataManager.categories.topics.keys).hashValue
+//        let corst = DataManager.categories.money[section].nameAssets
+//
+//
+//        return createCustomSection(contactName: "\(air)", contactDescription: "\(corst)")
         
-        return createCustomSection(contactName: "\(air)", contactDescription: "\(corst)")
         
+        let topic = DataManager.Topics.allCases[section]
+        
+        return createCustomSection(contactName: topic.rawValue,
+                                   contactDescription: "\(DataManager.categories.totalMoney(topic: topic))")
     }
     
     
@@ -57,20 +60,29 @@ class BalanceTableVC: UITableViewController {
     
     // return the number of cells each section.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let topick = DataManager.categories.money
-                if topick.count == 0 {
-                    return DataManager.categories.money.count
-                } else if topick.count >= 1 {
-                    return topick.count } else {
-                        return 0
-                    }
+//        let topick = DataManager.categories.money
+//                if topick.count == 0 {
+//                    return DataManager.categories.money.count
+//                } else if topick.count >= 1 {
+//                    return topick.count } else {
+//                        return 0
+//                    }
+        
+        let topic = DataManager.Topics.allCases[section]
+        return DataManager.categories.money(topic: topic).count
                
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let topic = DataManager.Topics.allCases[indexPath.section]
+        let index = DataManager.categories.money(topic: topic)[indexPath.row]
+        
+        
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! BalanceUiView
         
-        let index = DataManager.categories.money[indexPath.row]
+//        let index = DataManager.categories.money[indexPath.row]
         cell.update(word: index.nameAssets, word1: String(index.cost), imageArray: index.imageAssets)
         return cell
     }
