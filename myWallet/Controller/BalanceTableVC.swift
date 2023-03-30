@@ -9,41 +9,22 @@ import UIKit
 
 class BalanceTableVC: UITableViewController {
 
-    private var setAssets: [[Accountant]] = []
-    private var arayAssets: [Accountant] = []
-    private var sum: [[Accountant]] = []
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Balance"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
         view.backgroundColor = Resouces.Colors.mainWhite
-
-    
-        // кнопка видалення
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
-        // You must register the cell with a reuse identifier
         tableView.register(BalanceUiView.self, forCellReuseIdentifier: "courseCell")
         // Change the row height if you want
         tableView.rowHeight = 70
-        // This will remove any empty cells that are below your data filled cells
-        tableView.tableFooterView = UIView(frame: .zero)
-       // self.tableView.tableFooterView?.isHidden = true
-       tableView.tableHeaderView = UIView(frame: .zero)
-       // self.tableView.tableHeaderView?.isHidden = true
-        arayAssets = DataManager.categories.addAssets()
-        setAssets = DataManager.categories.generateRandomAssets()
         tableView.reloadData()
-        
         // кнопка нав бара добавити ячейку
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Добавити", style: .plain, target: self, action: #selector( addPreesedButton))
         
     }
     
-
     @objc func addPreesedButton() {
         let contactAddNewBalance = AddNewRowBalance()
         navigationController?.pushViewController(contactAddNewBalance, animated: true)
@@ -52,44 +33,20 @@ class BalanceTableVC: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return setAssets.count
+        let air = [String](DataManager.categories.topics.keys)
+        return air.count
+        
     }
     
     // return the title of sections
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let qqq = setAssets[section].first
-        let qqqq = setAssets[section]
-        var eeee = 0
-        for i in qqqq {
-           eeee += i.cost
-        }
+        // let qqq = DataManager.categories.generateRandomAssets(DataManager.categories.money)
+ 
+        let air = [String](DataManager.categories.topics.keys).hashValue
+        let corst = DataManager.categories.money[section].nameAssets
+      
         
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
-        header.backgroundColor = .systemGray
-
-        let label: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.font = UIFont.systemFont(ofSize: 20)
-            return label
-        }()
-        header.addSubview(label)
-        
-        let label1 = UILabel(frame: CGRect(x: 20 ,
-                                          y: 5,
-                                          width: header.frame.size.width,
-                                          height: header.frame.size.height-10))
-        header.addSubview(label1)
-        
-        label.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -20).isActive = true
-        label.topAnchor.constraint(equalTo: header.topAnchor, constant: 10).isActive = true
-
-       
-        label.text = String(eeee)
-        label1.text = qqq?.assets
-        label1.font = .systemFont(ofSize: 22, weight: .regular)
-        
-        return header
+        return createCustomSection(contactName: "\(air)", contactDescription: "\(corst)")
         
     }
     
@@ -100,9 +57,9 @@ class BalanceTableVC: UITableViewController {
     
     // return the number of cells each section.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let topick = setAssets[section]
+        let topick = DataManager.categories.money
                 if topick.count == 0 {
-                    return arayAssets.count
+                    return DataManager.categories.money.count
                 } else if topick.count >= 1 {
                     return topick.count } else {
                         return 0
@@ -113,12 +70,8 @@ class BalanceTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! BalanceUiView
         
-        let index = setAssets[indexPath.section][indexPath.row]
-        cell.courseName1.text = String(index.cost)
-        cell.courseName.text = index.nameAssets
-        cell.image.image = index.imageAssets
-        
-       
+        let index = DataManager.categories.money[indexPath.row]
+        cell.update(word: index.nameAssets, word1: String(index.cost), imageArray: index.imageAssets)
         return cell
     }
     
@@ -134,8 +87,8 @@ class BalanceTableVC: UITableViewController {
             // Delete the row from the data source
             
 
-
-            setAssets[indexPath.section].remove(at: indexPath.row)
+            guard let word = DataManager.categories.money.first else {return}
+            DataManager.categories.markAsDelete(word)
             
             tableView.deleteRows(at: [indexPath], with: .left)
         } else if editingStyle == .insert {

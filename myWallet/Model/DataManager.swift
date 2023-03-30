@@ -12,11 +12,12 @@ final class DataManager {
     static let categories = DataManager()
     
     private init() {
+        addAssets()
     }
     
     private(set) var money: [Accountant] = []
     private (set) var topics: [String: [Accountant]] = [:]
-    private (set) var sumMoney: [Int: [Accountant]] = [:]
+
 
     
     func addAssets() -> [Accountant] {
@@ -24,9 +25,9 @@ final class DataManager {
         let cash = Accountant(assets: "Cash", nameAssets: "Готівка", imageAssets: #imageLiteral(resourceName: "37607_green_organic_plant_wallet_icon"), cost: 10)
         array.append(cash)
         let cash1 = Accountant(assets: "Cash", nameAssets: "Готівка", imageAssets: #imageLiteral(resourceName: "37607_green_organic_plant_wallet_icon"), cost: 5)
-        array.append(cash1)
+       array.append(cash1)
         let cash2 = Accountant(assets: "Cash", nameAssets: "Готівка", imageAssets: #imageLiteral(resourceName: "37607_green_organic_plant_wallet_icon"), cost: 1)
-        array.append(cash2)
+       array.append(cash2)
         let creditCards = Accountant(assets: "Credit cards", nameAssets: "Приват банк", imageAssets: #imageLiteral(resourceName: "37607_green_organic_plant_wallet_icon"), cost: 2)
         array.append(creditCards)
         let otherAssets = Accountant(assets: "Other assets", nameAssets: "Дім", imageAssets: #imageLiteral(resourceName: "37607_green_organic_plant_wallet_icon"), cost: 3)
@@ -35,38 +36,24 @@ final class DataManager {
         return array
     }
     
-    func generateRandomAssets() -> [[Accountant]] {
+     func generateRandomAssets() -> [[Accountant]] {
         let section = addAssets()
         for item in section {
             var sectionByTopics = topics[item.assets] ?? []
             sectionByTopics.append(item)
             topics[item.assets] = sectionByTopics
         }
-        return Array(topics.values)
+         return Array(topics.values)
     }
     
-//    func sumConst() -> [[Accountant]] {
-//        let section = addAssets()
-//        for item in section {
-//            var sectionByTopics = sumMoney[item.cost] ?? []
-//            for i in sectionByTopics {
-//                var qqq = 0
-//                qqq += i.cost
-//                
-//            }
-//            
-//            sumMoney[item.cost] = sectionByTopics
-//           
-//                
-//            return Array(sumMoney.values)
-//    }
+    func addWords(_ words: Accountant) {
+        money.insert(words, at: 0)
+    }
     
-    
-    
-    func udd(_ word: [Accountant]) {
-        money.insert(contentsOf: word, at: 0)
-        //  topics.remove(word, at: 0)
-        
+    func markAsDelete(_ word: Accountant) {
+        guard let removeIndex = money.index(of: word) else { return }
+         money.remove(at: removeIndex)
+       // historyWords.insert(word, at: 0)
     }
 
 }

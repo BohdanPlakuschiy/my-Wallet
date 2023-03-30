@@ -9,11 +9,11 @@ import UIKit
 
 class TabBarControler: UITabBarController {
     
-    private let balanceVC = NavBarControler(rootViewController: BalanceTableVC())
-    private let budgetrVC = NavBarControler(rootViewController: BudgetTableVC())
-    private let todayVC = NavBarControler(rootViewController: TodayTableVC() )
-    private let reportsVC = NavBarControler(rootViewController: Reports())
-    private let settings = NavBarControler(rootViewController: Settings())
+    private let balanceVC = UINavigationController(rootViewController: BalanceTableVC())
+    private let budgetrVC = UINavigationController(rootViewController: BudgetTableVC())
+    private let todayVC = UINavigationController(rootViewController: TodayTableVC() )
+    private let reportsVC = UINavigationController(rootViewController: Reports())
+    private let settings = UINavigationController(rootViewController: Settings())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class TabBarControler: UITabBarController {
         ]
     }
     
-    private func generateVc(viewControoler: NavBarControler, title: String, image: UIImage?, tag: Int) -> NavBarControler {
+    private func generateVc(viewControoler: UIViewController, title: String, image: UIImage?, tag: Int) -> UIViewController {
         viewControoler.tabBarItem.title = title
         viewControoler.tabBarItem.image = image
         viewControoler.tabBarItem.tag = tag

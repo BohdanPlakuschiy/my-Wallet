@@ -66,9 +66,10 @@ class BalanceUiView: UITableViewCell {
         ])
     }
 
-    func update(word: String, word1: String) {
+    func update(word: String, word1: String, imageArray: UIImage) {
     courseName.text = word
-        courseName1.text = word1
+    courseName1.text = word1
+    image.image = imageArray
 }
     
     required init?(coder: NSCoder) {

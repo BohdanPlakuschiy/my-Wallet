@@ -13,6 +13,7 @@ class Settings: UIViewController {
         super.viewDidLoad()
         title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barTintColor = Resouces.Colors.mainWhite
         view.backgroundColor = .white
     }
     

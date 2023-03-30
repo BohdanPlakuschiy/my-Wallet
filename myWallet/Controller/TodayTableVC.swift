@@ -11,7 +11,7 @@ class TodayTableVC: UITableViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            navigationController?.navigationBar.prefersLargeTitles = true
+            //navigationController?.navigationBar.prefersLargeTitles = true
             setupView()
 
             // Uncomment the following line to preserve selection between presentations

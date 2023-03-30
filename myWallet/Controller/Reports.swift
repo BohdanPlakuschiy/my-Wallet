@@ -13,6 +13,7 @@ class Reports: UIViewController {
         super.viewDidLoad()
         title = "Reports"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barTintColor = Resouces.Colors.mainWhite
         view.backgroundColor = .white
 
 

@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     
     func createCustomNavigationBar() {
-        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.barTintColor = Resouces.Colors.mainWhite
     }
     
     func createCustomTitleView(contactName: String, contactDescription: String , contactDay: String, delimiter: String ) -> UIView  {
@@ -19,7 +19,7 @@ extension UIViewController {
         
         let nameLabelDay = UILabel()
         nameLabelDay.text = contactDay
-        nameLabelDay.frame = CGRect(x: 5, y: 0, width: 60, height: 60)
+        nameLabelDay.frame = CGRect(x: 0, y: 0, width: 80, height: 60)
         nameLabelDay.font = UIFont.systemFont(ofSize: 50)
         view.addSubview(nameLabelDay)
         
