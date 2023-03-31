@@ -21,6 +21,7 @@ class AddNewRowBalance: UIViewController {
         createImageView()
         constraintCreateTextField()
         constraintImage()
+        
     
     }
     

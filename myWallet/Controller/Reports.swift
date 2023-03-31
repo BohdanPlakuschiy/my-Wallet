@@ -12,7 +12,8 @@ class Reports: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Reports"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = Resouces.Colors.mainWhite
+      //  navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = Resouces.Colors.mainWhite
         view.backgroundColor = .white
 

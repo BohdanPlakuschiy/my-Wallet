@@ -58,12 +58,14 @@ class BalanceTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let topic = DataManager.Topics.allCases[section]
+        tableView.reloadData()
         return createCustomSection(contactName: "\(DataManager.categories.totalMoney(topic: topic))",
                                    contactDescription: topic.rawValue)
     }
 
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       
         return 40
     }
     

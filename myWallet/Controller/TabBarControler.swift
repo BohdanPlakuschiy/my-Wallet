@@ -9,11 +9,11 @@ import UIKit
 
 class TabBarControler: UITabBarController {
     
-    private let balanceVC = UINavigationController(rootViewController: BalanceTableVC())
-    private let budgetrVC = UINavigationController(rootViewController: BudgetTableVC())
-    private let todayVC = UINavigationController(rootViewController: TodayTableVC() )
-    private let reportsVC = UINavigationController(rootViewController: Reports())
-    private let settings = UINavigationController(rootViewController: Settings())
+    private let balanceVC = NavBarControler(rootViewController: BalanceTableVC())
+    private let budgetrVC = NavBarControler(rootViewController: BudgetTableVC())
+    private let todayVC = NavBarControler(rootViewController: TodayTableVC() )
+    private let reportsVC = NavBarControler(rootViewController: Reports())
+    private let settings = NavBarControler(rootViewController: Settings())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +21,14 @@ class TabBarControler: UITabBarController {
         setTaBarAppearance()
         
     }
-
+    
     private func generateTabBar() {
         viewControllers = [
-            generateVc(viewControoler: todayVC, title: "Today", image: UIImage(systemName: "clock"), tag: 0),
-            generateVc(viewControoler: reportsVC, title: "Reports", image: UIImage(systemName: "doc"), tag: 1),
-            generateVc(viewControoler: budgetrVC, title: "Balance", image: UIImage(systemName: "creditcard"), tag: 2),
-            generateVc(viewControoler: balanceVC, title: "Budget", image: UIImage(systemName: "battery.75"), tag: 3),
-            generateVc(viewControoler: settings, title: "Settings", image: UIImage(systemName: "gear"), tag: 4)
+            generateVc(viewControoler: todayVC, title: "Today", image: Resouces.Images.todayTabBarItem, tag: 0),
+            generateVc(viewControoler: reportsVC, title: "Reports", image: Resouces.Images.reportsTabBarItem, tag: 1),
+            generateVc(viewControoler: budgetrVC, title: "Balance", image: Resouces.Images.budgetrTabBarItem, tag: 2),
+            generateVc(viewControoler: balanceVC, title: "Budget", image: Resouces.Images.balanceTabBarItem, tag: 3),
+            generateVc(viewControoler: settings, title: "Settings", image: Resouces.Images.settingsTabBarItem, tag: 4)
         ]
     }
     
@@ -36,11 +36,11 @@ class TabBarControler: UITabBarController {
         viewControoler.tabBarItem.title = title
         viewControoler.tabBarItem.image = image
         viewControoler.tabBarItem.tag = tag
-
+        
         return viewControoler
     }
     
-    func setTaBarAppearance() {
+    private func setTaBarAppearance() {
         let positionOnX: CGFloat = 10
         let positionOnY: CGFloat = 14
         let width = tabBar.bounds.width - positionOnX * 2
@@ -63,7 +63,7 @@ class TabBarControler: UITabBarController {
         tabBar.tintColor = Resouces.Colors.tabBarIteamAccets
         tabBar.unselectedItemTintColor = Resouces.Colors.tabBarIteamLight
     }
-    
+
 }
 
 

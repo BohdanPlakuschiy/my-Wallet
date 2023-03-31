@@ -41,7 +41,7 @@ final class DataManager {
         return array
     }
         
-    func addWords(_ words: Accountant) {
+    func addAccountant(_ words: Accountant) {
         money.insert(words, at: 0)
     }
     

@@ -9,10 +9,17 @@ import UIKit
 
 class TodayTableVC: UITableViewController {
 
+
+
         override func viewDidLoad() {
             super.viewDidLoad()
-            //navigationController?.navigationBar.prefersLargeTitles = true
+            title = "Today"
+            view.backgroundColor = Resouces.Colors.mainWhite
+            navigationController?.navigationBar.prefersLargeTitles = true
+            tableView.register(BudgetUiView.self, forCellReuseIdentifier: "Cell")
             setupView()
+            setingsNavIteam()
+            
 
             // Uncomment the following line to preserve selection between presentations
             // self.clearsSelectionOnViewWillAppear = false
@@ -21,8 +28,18 @@ class TodayTableVC: UITableViewController {
             // self.navigationItem.rightBarButtonItem = self.editButtonItem
         }
     
+    func setingsNavIteam() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Resouces.Images.todayRightBarButtonItem, style: .done, target: self, action: #selector(buttonAction))
+    }
+    
+    @objc private func buttonAction() {
+           let postViewController = Reports()
+           self.navigationController?.pushViewController(postViewController, animated: true)
+
+       }
+    
     func setupView() {
-        createCustomNavigationBar()
+        //createCustomNavigationBar()
         // день недели
         let date = Date()
         let dateFormatter = DateFormatter()

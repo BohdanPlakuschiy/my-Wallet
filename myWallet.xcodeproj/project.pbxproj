@@ -24,6 +24,8 @@
 		4339966029C8B8B4002C0A3B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965F29C8B8B4002C0A3B /* Settings.swift */; };
 		4339966229C8BA78002C0A3B /* Accountant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339966129C8BA78002C0A3B /* Accountant.swift */; };
 		436A390C29D58DAF00B539E0 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A390B29D58DAF00B539E0 /* SectionView.swift */; };
+		436A391029D6FFF900B539E0 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A390F29D6FFF900B539E0 /* NavBarController.swift */; };
+		436A391229D7638500B539E0 /* Date + Calendar ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A391129D7638500B539E0 /* Date + Calendar ext.swift */; };
 		436A9A8C29CA1AB3004295DE /* AddNewRowBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A9A8B29CA1AB3004295DE /* AddNewRowBalance.swift */; };
 		436A9A8E29CA1C61004295DE /* ExtensionTitleViewDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A9A8D29CA1C61004295DE /* ExtensionTitleViewDate.swift */; };
 		436A9A9029CA26A1004295DE /* ExtensionSectionBalanceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A9A8F29CA26A1004295DE /* ExtensionSectionBalanceTVC.swift */; };
@@ -50,6 +52,8 @@
 		4339965F29C8B8B4002C0A3B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4339966129C8BA78002C0A3B /* Accountant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accountant.swift; sourceTree = "<group>"; };
 		436A390B29D58DAF00B539E0 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		436A390F29D6FFF900B539E0 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		436A391129D7638500B539E0 /* Date + Calendar ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Calendar ext.swift"; sourceTree = "<group>"; };
 		436A9A8B29CA1AB3004295DE /* AddNewRowBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRowBalance.swift; sourceTree = "<group>"; };
 		436A9A8D29CA1C61004295DE /* ExtensionTitleViewDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTitleViewDate.swift; sourceTree = "<group>"; };
 		436A9A8F29CA26A1004295DE /* ExtensionSectionBalanceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSectionBalanceTVC.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 				436A9A8F29CA26A1004295DE /* ExtensionSectionBalanceTVC.swift */,
 				432D1CE629D47EF200FB090E /* UiViewNavbar + ext.swift */,
 				432D1CE429D4773800FB090E /* Resouces.swift */,
+				436A391129D7638500B539E0 /* Date + Calendar ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				436A9A8B29CA1AB3004295DE /* AddNewRowBalance.swift */,
 				4339965D29C8B892002C0A3B /* Reports.swift */,
 				4339965F29C8B8B4002C0A3B /* Settings.swift */,
+				436A390F29D6FFF900B539E0 /* NavBarController.swift */,
 				43DB5F9329CDA74900651261 /* TabBarControler.swift */,
 			);
 			path = Controller;
@@ -231,6 +237,7 @@
 				4339965229C8B625002C0A3B /* BudgetUiView.swift in Sources */,
 				4339966229C8BA78002C0A3B /* Accountant.swift in Sources */,
 				436A9A8C29CA1AB3004295DE /* AddNewRowBalance.swift in Sources */,
+				436A391029D6FFF900B539E0 /* NavBarController.swift in Sources */,
 				436A9A9029CA26A1004295DE /* ExtensionSectionBalanceTVC.swift in Sources */,
 				4339965C29C8B851002C0A3B /* TodayTableVC.swift in Sources */,
 				4339965A29C8B83D002C0A3B /* BalanceTableVC.swift in Sources */,
@@ -239,6 +246,7 @@
 				432D1CE729D47EF200FB090E /* UiViewNavbar + ext.swift in Sources */,
 				43DB5F9429CDA74900651261 /* TabBarControler.swift in Sources */,
 				432D1CE529D4773800FB090E /* Resouces.swift in Sources */,
+				436A391229D7638500B539E0 /* Date + Calendar ext.swift in Sources */,
 				436A9A8E29CA1C61004295DE /* ExtensionTitleViewDate.swift in Sources */,
 				4339965829C8B829002C0A3B /* BudgetTableVC.swift in Sources */,
 			);

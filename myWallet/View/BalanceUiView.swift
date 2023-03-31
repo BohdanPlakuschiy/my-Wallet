@@ -9,21 +9,21 @@ import UIKit
 
 class BalanceUiView: UITableViewCell {
     
-    let image: UIImageView = {
+    private let image: UIImageView = {
         let image = UIImageView(image: UIImage())
         image.tintColor = .systemGray
         image.contentMode = .scaleAspectFit
-
+        
         return image
     }()
-
-    var courseName: UILabel = {
+    
+    private var courseName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
-    var courseName1: UILabel = {
+    private var courseName1: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
@@ -32,16 +32,13 @@ class BalanceUiView: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addComponents()
+        constraintView()
         
-        // Set any attributes of your UI components here
-        
-        // Add the UI components
-        contentView.addSubview(courseName1)
-        contentView.addSubview(courseName)
-        contentView.addSubview(image)
-        
+    }
+    
+    private func constraintView() {
         image.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
@@ -65,12 +62,18 @@ class BalanceUiView: UITableViewCell {
             courseName.widthAnchor.constraint(equalToConstant: 120)
         ])
     }
-
+    
+    private func addComponents() {
+        contentView.addSubview(courseName1)
+        contentView.addSubview(courseName)
+        contentView.addSubview(image)
+    }
+    
     func update(word: String, word1: String, imageArray: UIImage) {
-    courseName.text = word
-    courseName1.text = word1
-    image.image = imageArray
-}
+        courseName.text = word
+        courseName1.text = word1
+        image.image = imageArray
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -82,6 +85,6 @@ class BalanceUiView: UITableViewCell {
 
 
 
- 
+
 
 
