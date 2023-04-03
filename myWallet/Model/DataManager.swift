@@ -45,8 +45,8 @@ final class DataManager {
         money.insert(words, at: 0)
     }
     
-    func markAsDelete(_ word: Accountant) {
-        guard let removeIndex = money.index(of: word) else { return }
+    func markAsDelete(_ moneys: Accountant) {
+        guard let removeIndex = money.index(of: moneys) else { return }
         money.remove(at: removeIndex)
         // historyWords.insert(word, at: 0)
     }

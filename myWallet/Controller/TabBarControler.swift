@@ -10,7 +10,7 @@ import UIKit
 class TabBarControler: UITabBarController {
     
     private let balanceVC = NavBarControler(rootViewController: BalanceTableVC())
-    private let budgetrVC = NavBarControler(rootViewController: BudgetTableVC())
+    private let budgetrVC = NavBarControler(rootViewController: BudgetVC())
     private let todayVC = NavBarControler(rootViewController: TodayTableVC() )
     private let reportsVC = NavBarControler(rootViewController: Reports())
     private let settings = NavBarControler(rootViewController: Settings())
@@ -26,8 +26,8 @@ class TabBarControler: UITabBarController {
         viewControllers = [
             generateVc(viewControoler: todayVC, title: "Today", image: Resouces.Images.todayTabBarItem, tag: 0),
             generateVc(viewControoler: reportsVC, title: "Reports", image: Resouces.Images.reportsTabBarItem, tag: 1),
-            generateVc(viewControoler: budgetrVC, title: "Balance", image: Resouces.Images.budgetrTabBarItem, tag: 2),
-            generateVc(viewControoler: balanceVC, title: "Budget", image: Resouces.Images.balanceTabBarItem, tag: 3),
+            generateVc(viewControoler: budgetrVC, title: "Budget", image: Resouces.Images.budgetrTabBarItem, tag: 2),
+            generateVc(viewControoler: balanceVC, title: "Balance", image: Resouces.Images.balanceTabBarItem, tag: 3),
             generateVc(viewControoler: settings, title: "Settings", image: Resouces.Images.settingsTabBarItem, tag: 4)
         ]
     }

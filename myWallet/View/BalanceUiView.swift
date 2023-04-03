@@ -69,7 +69,7 @@ class BalanceUiView: UITableViewCell {
         contentView.addSubview(image)
     }
     
-    func update(word: String, word1: String, imageArray: UIImage) {
+    func updateBalance(word: String, word1: String, imageArray: UIImage) {
         courseName.text = word
         courseName1.text = word1
         image.image = imageArray

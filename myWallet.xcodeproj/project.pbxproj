@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431D3C1329DB17F900C8B70C /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431D3C1229DB17F900C8B70C /* Budget.swift */; };
+		431D3C1529DB19B500C8B70C /* BudgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431D3C1429DB19B500C8B70C /* BudgetVC.swift */; };
+		431D3C1729DB316200C8B70C /* HeaderReusaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431D3C1629DB316200C8B70C /* HeaderReusaleView.swift */; };
 		432D1CE529D4773800FB090E /* Resouces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D1CE429D4773800FB090E /* Resouces.swift */; };
 		432D1CE729D47EF200FB090E /* UiViewNavbar + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D1CE629D47EF200FB090E /* UiViewNavbar + ext.swift */; };
 		4339963829C8B40F002C0A3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339963729C8B40F002C0A3B /* AppDelegate.swift */; };
@@ -14,10 +17,8 @@
 		4339964129C8B411002C0A3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4339964029C8B411002C0A3B /* Assets.xcassets */; };
 		4339964429C8B411002C0A3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4339964229C8B411002C0A3B /* LaunchScreen.storyboard */; };
 		4339965029C8B5C9002C0A3B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339964F29C8B5C9002C0A3B /* DataManager.swift */; };
-		4339965229C8B625002C0A3B /* BudgetUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965129C8B625002C0A3B /* BudgetUiView.swift */; };
 		4339965429C8B7AA002C0A3B /* BalanceUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965329C8B7AA002C0A3B /* BalanceUiView.swift */; };
 		4339965629C8B7EF002C0A3B /* TodayUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965529C8B7EF002C0A3B /* TodayUiView.swift */; };
-		4339965829C8B829002C0A3B /* BudgetTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965729C8B829002C0A3B /* BudgetTableVC.swift */; };
 		4339965A29C8B83D002C0A3B /* BalanceTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965929C8B83D002C0A3B /* BalanceTableVC.swift */; };
 		4339965C29C8B851002C0A3B /* TodayTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965B29C8B851002C0A3B /* TodayTableVC.swift */; };
 		4339965E29C8B892002C0A3B /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339965D29C8B892002C0A3B /* Reports.swift */; };
@@ -33,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431D3C1229DB17F900C8B70C /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		431D3C1429DB19B500C8B70C /* BudgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetVC.swift; sourceTree = "<group>"; };
+		431D3C1629DB316200C8B70C /* HeaderReusaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusaleView.swift; sourceTree = "<group>"; };
 		432D1CE429D4773800FB090E /* Resouces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resouces.swift; sourceTree = "<group>"; };
 		432D1CE629D47EF200FB090E /* UiViewNavbar + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiViewNavbar + ext.swift"; sourceTree = "<group>"; };
 		4339963429C8B40F002C0A3B /* myWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,10 +46,8 @@
 		4339964329C8B411002C0A3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4339964529C8B411002C0A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4339964F29C8B5C9002C0A3B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		4339965129C8B625002C0A3B /* BudgetUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetUiView.swift; sourceTree = "<group>"; };
 		4339965329C8B7AA002C0A3B /* BalanceUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUiView.swift; sourceTree = "<group>"; };
 		4339965529C8B7EF002C0A3B /* TodayUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayUiView.swift; sourceTree = "<group>"; };
-		4339965729C8B829002C0A3B /* BudgetTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableVC.swift; sourceTree = "<group>"; };
 		4339965929C8B83D002C0A3B /* BalanceTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableVC.swift; sourceTree = "<group>"; };
 		4339965B29C8B851002C0A3B /* TodayTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableVC.swift; sourceTree = "<group>"; };
 		4339965D29C8B892002C0A3B /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				432D1CE629D47EF200FB090E /* UiViewNavbar + ext.swift */,
 				432D1CE429D4773800FB090E /* Resouces.swift */,
 				436A391129D7638500B539E0 /* Date + Calendar ext.swift */,
+				431D3C1629DB316200C8B70C /* HeaderReusaleView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -119,7 +122,7 @@
 			children = (
 				4339965929C8B83D002C0A3B /* BalanceTableVC.swift */,
 				4339965B29C8B851002C0A3B /* TodayTableVC.swift */,
-				4339965729C8B829002C0A3B /* BudgetTableVC.swift */,
+				431D3C1429DB19B500C8B70C /* BudgetVC.swift */,
 				436A9A8B29CA1AB3004295DE /* AddNewRowBalance.swift */,
 				4339965D29C8B892002C0A3B /* Reports.swift */,
 				4339965F29C8B8B4002C0A3B /* Settings.swift */,
@@ -133,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				4339965329C8B7AA002C0A3B /* BalanceUiView.swift */,
-				4339965129C8B625002C0A3B /* BudgetUiView.swift */,
+				431D3C1229DB17F900C8B70C /* Budget.swift */,
 				4339965529C8B7EF002C0A3B /* TodayUiView.swift */,
 			);
 			path = View;
@@ -234,21 +237,22 @@
 				4339963A29C8B40F002C0A3B /* SceneDelegate.swift in Sources */,
 				4339965429C8B7AA002C0A3B /* BalanceUiView.swift in Sources */,
 				4339965629C8B7EF002C0A3B /* TodayUiView.swift in Sources */,
-				4339965229C8B625002C0A3B /* BudgetUiView.swift in Sources */,
 				4339966229C8BA78002C0A3B /* Accountant.swift in Sources */,
 				436A9A8C29CA1AB3004295DE /* AddNewRowBalance.swift in Sources */,
 				436A391029D6FFF900B539E0 /* NavBarController.swift in Sources */,
+				431D3C1729DB316200C8B70C /* HeaderReusaleView.swift in Sources */,
 				436A9A9029CA26A1004295DE /* ExtensionSectionBalanceTVC.swift in Sources */,
 				4339965C29C8B851002C0A3B /* TodayTableVC.swift in Sources */,
 				4339965A29C8B83D002C0A3B /* BalanceTableVC.swift in Sources */,
 				436A390C29D58DAF00B539E0 /* SectionView.swift in Sources */,
 				4339966029C8B8B4002C0A3B /* Settings.swift in Sources */,
 				432D1CE729D47EF200FB090E /* UiViewNavbar + ext.swift in Sources */,
+				431D3C1529DB19B500C8B70C /* BudgetVC.swift in Sources */,
 				43DB5F9429CDA74900651261 /* TabBarControler.swift in Sources */,
 				432D1CE529D4773800FB090E /* Resouces.swift in Sources */,
 				436A391229D7638500B539E0 /* Date + Calendar ext.swift in Sources */,
 				436A9A8E29CA1C61004295DE /* ExtensionTitleViewDate.swift in Sources */,
-				4339965829C8B829002C0A3B /* BudgetTableVC.swift in Sources */,
+				431D3C1329DB17F900C8B70C /* Budget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

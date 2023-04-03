@@ -9,13 +9,15 @@ import UIKit
 
 class BalanceTableVC: UITableViewController {
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Balance"
         //navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        //view.backgroundColor = .brown
         tableView.register(BalanceUiView.self, forCellReuseIdentifier: "courseCell")
         // Change the row height if you want
         
@@ -40,6 +42,7 @@ class BalanceTableVC: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return DataManager.Topics.allCases.count
+        //
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -58,7 +61,6 @@ class BalanceTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let topic = DataManager.Topics.allCases[section]
-        tableView.reloadData()
         return createCustomSection(contactName: "\(DataManager.categories.totalMoney(topic: topic))",
                                    contactDescription: topic.rawValue)
     }
@@ -86,7 +88,7 @@ class BalanceTableVC: UITableViewController {
         
         let topic = DataManager.Topics.allCases[indexPath.section]
         let index = DataManager.categories.money(topic: topic)[indexPath.row]
-        cell.update(word: index.nameAssets, word1: String(index.cost), imageArray: index.imageAssets)
+        cell.updateBalance(word: index.nameAssets, word1: String(index.cost), imageArray: index.imageAssets)
         return cell
     }
     

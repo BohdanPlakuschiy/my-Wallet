@@ -16,7 +16,7 @@ class TodayTableVC: UITableViewController {
             title = "Today"
             view.backgroundColor = Resouces.Colors.mainWhite
             navigationController?.navigationBar.prefersLargeTitles = true
-            tableView.register(BudgetUiView.self, forCellReuseIdentifier: "Cell")
+            tableView.register(TodayUiView.self, forCellReuseIdentifier: "Cell")
             setupView()
             setingsNavIteam()
             

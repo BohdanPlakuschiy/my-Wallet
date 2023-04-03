@@ -15,8 +15,7 @@ class Reports: UIViewController {
         view.backgroundColor = Resouces.Colors.mainWhite
       //  navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = Resouces.Colors.mainWhite
-        view.backgroundColor = .white
-
+       
 
         // Do any additional setup after loading the view.
     }

@@ -12,7 +12,7 @@ extension Date {
         return Calendar.current
     }
     
-    var startOfWeek Date {
-        
-    }
+//    var startOfWeek Date {
+//        
+//    }
 }
